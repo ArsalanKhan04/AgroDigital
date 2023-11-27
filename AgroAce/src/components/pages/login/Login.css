@@ -1,0 +1,193 @@
+.LoginPage
+{
+    font-family: 'poppins'; 
+    display: flex;
+    background: linear-gradient(48deg, rgba(97,215,182,1) 0%, rgba(255,255,255,1) 46%, rgb(163, 214, 238) 81%);
+    padding: 0vw 4vw;
+}
+
+/* Left Section */
+.LoginPage .leftSection
+{
+    width: 120%;
+    height: 100vh;
+    justify-content: center;
+
+}
+
+.LoginPage .leftInnerBox
+{
+    text-align: left;
+    margin-left: 2vw;
+    margin-top: 5vw;
+    height: max-content;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+    margin-right: 2vw;
+background: rgba(255, 255, 255, 0.21);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(4.8px);
+-webkit-backdrop-filter: blur(4.8px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+    
+}
+
+.LoginPage .bkMain
+{
+    font-size: 1.2vw;
+    margin-left: 2vw;
+    margin-right: 3vw;
+    font-weight: 400;
+}
+
+.LoginPage .leftInnerBox h1
+{
+    font-size: 2.3vw;
+    margin-left: 2vw;
+    /* margin-top: 8vw; */
+}
+
+.LoginPage .leftInnerBox h3
+{
+    margin-left: 2vw;
+    margin-right: 3vw;
+    font-size: 1vw;
+    font-weight: 400;
+}
+/* Right Section */
+
+.LoginPage .rightSection
+{
+    /* text-align: center; */
+    margin-top: 5vw;
+}
+
+.LoginPage img
+{
+   text-align: left;
+   justify-content: left;
+    width: 20%;
+    margin-left: 10vw;
+   
+}
+
+.LoginPage .rightSection h1
+{
+    text-align: center;
+}
+
+.LoginPage .rightSection h1 i
+{
+ color: #757ff1;
+    /* color: rgb(245, 237, 237); */
+     /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */ 
+
+}
+
+.LoginPage .loginForm
+{
+  text-align: center;
+  margin-top: 2.5vw;
+
+}
+
+.LoginPage .frm
+{
+    width: 22vw;
+    height: 2.5vw;
+    border-radius: 20px;
+    outline: none;
+    border-style: none;
+    font-size: 1.2vw;
+    padding-left: 1.5vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+ 
+}
+
+.LoginPage .loginForm span
+{
+    font-size: 1.2vw;
+    text-align: left;
+ 
+}
+
+
+.LoginPage label
+{
+
+font-size: 1.2vw;
+text-align: left;
+}
+
+.LoginPage .rightSection a
+{
+    padding: 2vw;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    color: black;
+}
+
+.rmbrme
+{
+
+}
+
+.LoginPage button
+{
+    margin-top: 2vw;
+    font-size: 1.2vw;
+    padding: 0.5vw 8vw;
+    border-radius: 2vw;
+    outline: none;
+    border-style: none;
+    background-color: #757ff1;
+    color: rgb(245, 237, 237);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    cursor: pointer;
+
+}
+
+
+.LoginPage button:hover
+{
+    background-color: #4852bc;
+    cursor: pointer;
+}
+
+.LoginPage .loginsec
+{
+    padding-left: 1.5vw;
+}
+
+.LoginPage .rightSection button a
+{
+    list-style: none;
+    outline: none;
+    text-decoration: none;
+    color: white;
+}
+
+.LoginPage .leftSection a
+{
+    list-style: none;
+    outline: none;
+    text-decoration: none;
+    color: black;
+    padding-left: 1vw;
+    cursor: pointer;
+}
+
+.LoginPage .loginthird
+{
+    margin-top:1vw;
+    font-size: 1vw;
+    
+}
+
+.LoginPage .leftSection a:hover
+{
+   
+}
