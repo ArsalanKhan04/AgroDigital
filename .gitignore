@@ -1,0 +1,12 @@
+# .gitignore
+
+# env
+agrodig/
+
+# Django
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+agrodig_proj/db.sqlite3
+.DS_Store
