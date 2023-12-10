@@ -65,6 +65,7 @@
   <ItemGroup>
     <Build Include="checktablelist.sql" />
     <Build Include="Tables\adding_crops.sql" />
+    <Build Include="Tables\address_amend.sql.sql" />
     <Build Include="Tables\creating_address.sql" />
     <Build Include="Tables\farmers.sql" />
     <Build Include="Tables\fertilizers.sql" />

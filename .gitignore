@@ -2,6 +2,7 @@
 
 # env
 agrodig/
+agrodig_env/
 
 # Django
 __pycache__

@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'main.apps.MainConfig'
 ]
 
 MIDDLEWARE = [
@@ -73,10 +74,19 @@ WSGI_APPLICATION = 'agrodig_proj.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# Changed the database here to connect to our Azure SQL Database
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'sql_server.pyodbc',
+        'HOST': 'agrochnew.database.windows.net',
+        'PORT': '1433',
+        'NAME': 'agrofinal',
+        'USER': 'arsal4an',
+        'PASSWORD': '@grocheck123',
+        'OPTIONS': {
+            'driver': 'ODBC Driver 17 for SQL Server',
+        },
     }
 }
 
