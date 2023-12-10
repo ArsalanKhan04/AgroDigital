@@ -1,0 +1,91 @@
+/* CSS FOR HERO SECTION  */
+
+
+.hero
+{
+    padding: 0vw 8vw;
+    display: flex;
+    font-family: 'poppins';
+}
+
+.rightSideHero 
+{
+    width: 50%;
+    text-align: right;
+    margin-left: -8vw;
+    transform: translate(0px, -4vw);
+}
+
+.rightSideHero img
+{
+    width: 150%;
+}
+
+.leftSideHero
+{
+    width: 44%;
+    margin-top: 5vw;
+    text-align: CENTER;
+    transform: translate(0px, -1%);
+}
+
+.leftSideHero .mainText 
+{
+text-align: LEFT;
+line-height: 25%;
+}
+
+.leftSideHero .mainText h1
+{
+font-size: 5.5vw;
+margin-left: 2.7vw;
+}
+
+.leftSideHero .mainText h2
+{
+text-align: left;
+margin-left: 3.2vw;
+letter-spacing: 2.2vh;
+font-size: 1.6vw;
+}
+
+#agro_text
+{
+    /* letter-spacing: 0.6vw; */
+    text-align: left;
+ 
+}
+
+.captionText h3
+{
+    font-weight: 300;
+    text-align: left;
+    margin-left: 3.2vw;
+    font-size: 1.4vw;
+}
+
+.GetStartedButton
+{
+    text-align: left;
+    margin-left: 3vw;
+    margin-top: 2vw;
+}
+
+.GetStartedButton button
+{
+    width: 40%;
+    font-size: 1.5vw;
+    padding: 1vw;
+    font-weight: 300;
+    border-radius: 20vw;
+    border-style: none;
+    background-color: #757ff1;
+    color: rgb(245, 237, 237);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+button:hover
+{
+    background-color: #4852bc;
+    cursor: pointer;
+}

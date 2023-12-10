@@ -1,0 +1,201 @@
+body
+{
+    font-family: 'poppins'; 
+    display: flex;
+    background: linear-gradient(48deg, rgba(97,215,182,1) 0%, rgba(255,255,255,1) 46%, rgb(163, 214, 238) 81%);
+    padding: 0vw 4vw;
+}
+
+/* Left Section */
+.leftSection
+{
+    width: 80%;
+    height: 100vh;
+    justify-content: center;
+
+}
+
+.rightInnerBox
+{
+    text-align: left;
+    margin-left: 2vw;
+    margin-top: 1vw;
+    height: max-content;
+    width: 35vw;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+    margin-right: 2vw;
+background: rgba(255, 255, 255, 0.21);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(4.8px);
+-webkit-backdrop-filter: blur(4.8px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+    
+}
+
+.bkMain
+{
+    font-size: 1.2vw;
+    margin-left: 2vw;
+    margin-right: 3vw;
+    font-weight: 400;
+}
+
+.rightInnerBox h1
+{
+    font-size: 2.3vw;
+    margin-left: 2vw;
+    /* margin-top: 8vw; */
+}
+
+.rightInnerBox h3
+{
+    margin-left: 2vw;
+    margin-right: 3vw;
+    font-size: 1vw;
+    font-weight: 400;
+}
+
+
+/* left Section */
+
+.leftSection
+{
+    /* text-align: center; */
+    margin-top: 3vw;
+}
+
+img
+{
+   text-align: left;
+   justify-content: left;
+    width: 20%;
+   
+   
+}
+
+
+.leftSection h1 i
+{
+ color: #757ff1;
+    /* color: rgb(245, 237, 237); */
+     /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */ 
+
+}
+
+.loginForm
+{
+  
+  margin-top: 2.5vw;
+
+}
+
+.frm
+{
+    width: 22vw;
+    height: 2.5vw;
+    border-radius: 20px;
+    outline: none;
+    border-style: none;
+    font-size: 1.2vw;
+    padding-left: 1.5vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+ 
+}
+
+.loginForm span
+{
+    font-size: 1.2vw;
+    text-align: left;
+ 
+}
+
+
+label
+{
+
+font-size: 1.2vw;
+text-align: left;
+}
+
+.leftSection a
+{
+    padding: 2vw;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+}
+
+
+
+button
+{   margin-top: 2vw;
+    font-size: 1.2vw;
+    padding: 0.5vw 2vw;
+    border-radius: 2vw;
+    outline: none;
+    border-style: none;
+    background-color: #757ff1;
+    color: rgb(245, 237, 237);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    cursor: pointer;
+    margin-left: 5vw;
+}
+
+
+button:hover
+{
+    background-color: #4852bc;
+    cursor: pointer;
+}
+
+.loginsec
+{
+    padding-left: 1.5vw;
+}
+
+.leftSection button a
+{
+    list-style: none;
+    outline: none;
+    text-decoration: none;
+    color: white;
+}
+
+.leftSection a
+{
+    list-style: none;
+    outline: none;
+    text-decoration: none;
+    color: black;
+    padding-left: 1vw;
+    cursor: pointer;
+}
+
+.loginthird
+{
+    margin-top:1vw;
+    font-size: 1vw;
+    
+}
+
+/* Right Section */
+
+.rightSection
+{
+    /* text-align: center; */
+    margin-top: 5vw;
+}
+
+
+.rightSection a
+{
+    list-style: none;
+    outline: none;
+    text-decoration: none;
+    color: black;
+    padding-left: 1vw;
+    cursor: pointer;
+}
