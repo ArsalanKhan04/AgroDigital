@@ -18,7 +18,7 @@ const hero = () => {
         </div>
         <div class="captionText">
             <h3>Pakistan's 1st All in One  Agricultural Land <br/> 
-            Management System by Abdullah & Riyan </h3>
+            Management System by Ryan, Imama and Arsalan </h3>
         </div>
         <div class="GetStartedButton">
             <button><Link to='/Login'> Get Started </Link><i class="fa-solid fa-circle-right"></i></button>
