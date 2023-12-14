@@ -1,0 +1,122 @@
+.dashboard-header
+{
+    background-color: antiquewhite;
+    width: 80vw;
+    height: 6vw;
+    margin: none;
+    /* margin-left: 1vw; */
+    margin-top:1vw ;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    border-top-left-radius: 2vw;
+    border-top-right-radius: 2vw;
+    border-bottom-right-radius: 2vw;
+    /* border: 1vw; */
+}
+
+.cf
+{
+   /* transform: translate(0vw,-20vw); */
+    margin-bottom: -11.6vh;
+    font-size: 1.2vw;
+    position: absolute;
+    transform: translateY(-3vh);
+    /* transform: translate(85vw,-14vh) ; */
+    color: rgb(65, 64, 64);
+}
+
+.CurrentFarm
+{
+    text-align: center;
+    position: absolute;
+    width: 100vw;
+    margin-top: 0.3vw;
+    transform: translate(82vw,-10vh) ;
+    opacity: 70%;
+}
+
+.cfN
+{
+    margin-bottom: -11.6vh;
+    font-size: 1.3vw;
+    position: absolute;
+   
+    color: rgb(45, 45, 45); 
+}
+
+.dashboard-icon
+{
+    padding-right: 2vw;
+    padding-left: 2vw;
+    /* margin-top: 1.5vw; */
+    width: 2vw;
+    height: 100vw;
+    background-color: rgb(59, 167, 59);
+}
+
+
+.dashboard-icon i
+{
+    font-size: 2vw;
+    margin-top: 2vw;
+    color: white;
+}
+
+.dashboard-logo
+{
+    width: 2%;
+    padding-left: 3vw;
+
+}
+
+.dashboard-logo img
+{
+    width: 12vw;
+    margin-top: 1.6vw;
+}
+
+.time
+{
+    padding-left: 40vw;
+    line-height:  0px;
+    font-size: 1.1vw;
+    text-align: center;
+    /* font-weight: 200; */
+
+}
+
+.time h3
+{
+    margin-top: 2.1vw;
+    font-weight: 300;
+}
+
+.time h4
+{
+    transform: translate(0vw,-1vw);
+    font-weight: 200;
+}
+
+
+.dashboard-notification
+{
+    padding-left: 8vw;
+}
+
+.dashboard-notification i
+{
+    font-size: 2vw;
+    margin-top: 1.6vw;
+}
+
+.dashboard-pfp
+{
+    width: 2vw;
+    background-color: rgb(38, 152, 152);
+    height: 4vw;
+    padding-left: 2vw;
+    border-radius: 20vw;
+    margin-top: 0.8vw;
+    margin-left: 3vw;
+}
