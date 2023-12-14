@@ -130,10 +130,6 @@ text-align: left;
     color: black;
 }
 
-.rmbrme
-{
-
-}
 
 .LoginPage button
 {
@@ -185,11 +181,6 @@ text-align: left;
     margin-top:1vw;
     font-size: 1vw;
     
-}
-
-.LoginPage .leftSection a:hover
-{
-   
 }
 
 .loginStatus

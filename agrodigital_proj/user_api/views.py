@@ -24,8 +24,15 @@ class UserLogin(APIView):
     
     def post(self, request):
         data = request.data
-        assert validate_email(data)
-        assert validate_password(data)
+
+        # Validating email and password
+        try:
+            assert validate_email(data)
+            assert validate_password(data)
+        except AssertionError as e:
+            return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+        
+        
         serializer = UserLoginSerializer(data=data)
         if serializer.is_valid(raise_exception=True):
             user = serializer.check_user(data)
