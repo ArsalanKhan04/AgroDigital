@@ -14,7 +14,7 @@ const hero = () => {
         <div class="mainText">
             <h1>EMPOWER</h1>
             <h2>YOUR FARM WITH</h2>
-            <h1 id="agro_text">AGRO ACE</h1>
+            <h1 id="agro_text">AGRO DIGITAL</h1>
         </div>
         <div class="captionText">
             <h3>Pakistan's 1st All in One  Agricultural Land <br/> 
