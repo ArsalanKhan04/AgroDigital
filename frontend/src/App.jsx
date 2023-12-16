@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import Farm from './Pages/Farm';
 import Search from './Pages/Search';
 import {
   BrowserRouter as Router,
@@ -15,7 +16,7 @@ function App() {
     //     <Route path='/' element={Navbar} />
     //   </Routes>
     // </Router>
-    <Search />
+    <Farm/>
   )
 }
 
