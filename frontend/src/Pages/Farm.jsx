@@ -5,7 +5,7 @@ const Farm = () => {
   return (
     <>
       <Navbar />
-      <div className="grid grid-cols-1 md:grid-cols-[2fr,1fr]">
+      <div className="grid grid-cols-2 md:grid-cols-[2fr,1fr] ">
         {/* First column */}
         <div className="mx-auto md:mx-0">
           <div className="text-green-800 text-4xl md:text-6xl font-normal font-Fredoka flex flex-col items-center justify-center">
