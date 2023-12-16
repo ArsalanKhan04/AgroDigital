@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import './App.css'
+import Home from './Pages/Home';
 import Farm from './Pages/Farm';
 import Search from './Pages/Search';
+import CarouselComponent from './Pages/Home';
+import Forum from './Pages/forum';
 import {
   BrowserRouter as Router,
   Routes,
@@ -16,7 +19,10 @@ function App() {
     //     <Route path='/' element={Navbar} />
     //   </Routes>
     // </Router>
-    <Farm/>
+    // <Farm/>
+    // <Home/>
+    <Forum/>
+
   )
 }
 
