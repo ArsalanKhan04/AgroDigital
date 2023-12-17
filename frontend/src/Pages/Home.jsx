@@ -14,8 +14,12 @@ const Home = () => {
         <div>
           <div className="bg-gray-300 rounded-md py-20 w-[400px] mt-[70px] ml-[55px]" />
           <div className="flex gap-6 ml-20 mt-4">
-            <div className="w-40 h-10 bg-emerald-100 rounded-3xl" />
-            <div className="w-40 h-10 bg-emerald-100 rounded-3xl" />
+            <button className="w-40 h-10 bg-emerald-100 rounded-3xl items-center flex justify-center">
+            <div className="text-green-800 text-xl font-bold font-['Fredoka']">Add Farm</div>
+            </button>
+            <button className="w-40 h-10 bg-emerald-100 rounded-3xl items-center flex justify-center">
+            <div className="text-green-800 text-xl font-bold font-['Fredoka']">Delete Farm</div>
+            </button>
           </div>
           <div>
             <div className="w-[500px] h-[217px] bg-emerald-100 rounded-3xl mt-6 ml-[25px]" />
