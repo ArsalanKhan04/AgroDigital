@@ -4,8 +4,18 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Navbar from "../components/Navbar";
 import "../styles/home.css";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "../Components/ui/dialogue";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
   return (
     <div id="root">
       <Navbar />
@@ -14,11 +24,58 @@ const Home = () => {
         <div>
           <div className="bg-gray-300 rounded-md py-20 w-[400px] mt-[70px] ml-[55px]" />
           <div className="flex gap-6 ml-20 mt-4">
-            <button className="w-40 h-10 bg-emerald-100 rounded-3xl items-center flex justify-center">
-            <div className="text-green-800 text-xl font-bold font-['Fredoka']">Add Farm</div>
-            </button>
-            <button className="w-40 h-10 bg-emerald-100 rounded-3xl items-center flex justify-center">
-            <div className="text-green-800 text-xl font-bold font-['Fredoka']">Delete Farm</div>
+            <Dialog>
+              <DialogTrigger>
+                <button className="w-40 h-10 bg-emerald-100 rounded-3xl items-center flex justify-center">
+                  <div className="text-green-800 text-xl font-bold font-['Fredoka']">
+                    Add Farm
+                  </div>
+                </button>
+              </DialogTrigger>
+              <DialogContent className="bg-[#5caf74] justify-center">
+                <div className="mt-4 flex justify-center">
+                  Add the Details for the Farm !
+                </div>
+                <div className="grid grid-col">
+                  <div>
+                    <label>Enter the name of the Farm: </label>
+                    <input
+                      type="text"
+                      placeholder="Name of the farm"
+                      className="p-4 pl-10 pr-10 rounded-md"
+                    />
+                  </div>
+                  <div>
+                    <label>Enter the area of the Farm: </label>
+                    <input
+                      type="number"
+                      placeholder="Area of the farm"
+                      className="p-4 pl-10 pr-10 rounded-md"
+                    />
+                  </div>
+                  <div>
+                    <label>Enter the Location of the Farm: </label>
+                    <input
+                      type="text"
+                      placeholder="Location of the farm"
+                      className="p-4 pl-10 pr-10 rounded-md"
+                    />
+                  </div>
+                  <div className="flex justify-center">
+                    <button
+                      onClick={() => navigate("/map", { replace: true })}
+                      className="py-2 px-4 bg-white"
+                    >
+                      Open Map
+                    </button>
+                  </div>
+                </div>
+              </DialogContent>
+            </Dialog>
+            <button className="w-40 h-10 bg-emerald-100 rounded-3xl items-center flex justify-center mt-2">
+              <div className="text-green-800 text-xl font-bold font-['Fredoka']">
+                Delete Farm
+              </div>
             </button>
           </div>
           <div>
