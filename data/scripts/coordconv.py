@@ -2,6 +2,7 @@
 # For now NDVI is 500m while LST is 1km
 # Hence NDVI resolution is 0.5 while LST is 1
 from math import floor
+from datetime import datetime
 
 TILEVH = {
     'h23v05': [(57.7350,    78.3353),   (30.0000,   40.0000)],
@@ -38,3 +39,12 @@ def return_coordinates(long, lat, resolution):
     y = floor((rel_lat/lat_dist) * total_points)
 
     return (x, y, tile)
+
+def day_of_year(date_string):
+    date_format = "%Y-%m-%d"  # Adjust the format according to your date input
+    date_object = datetime.strptime(date_string, date_format)
+    
+    # Get the day of the year
+    day_of_year = date_object.timetuple().tm_yday
+    
+    return day_of_year

@@ -9,5 +9,5 @@ https://lpdaac.usgs.gov/products/mod13a1v061/
 The Land Surface Temperature is stored in MOD11A2 files
 https://lpdaac.usgs.gov/products/mod11a2v061/
 
-The Land Water content is stored in MERRA2 files
-https://disc.gsfc.nasa.gov/datasets/M2T1NXLND_5.12.4/summary
+The Land Water content is stored in FLDAS files
+https://disc.gsfc.nasa.gov/datasets/FLDAS_NOAHMP001_G_CA_D_001/summary
