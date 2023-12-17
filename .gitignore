@@ -2,7 +2,8 @@ AgroNew_env/
 
 # .gitignore
 
-data/
+data/*
+!data/notebooks
 # Django
 __pycache__
 *.pyc
