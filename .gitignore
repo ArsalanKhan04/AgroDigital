@@ -4,6 +4,7 @@ AgroNew_env/
 
 data/*
 !data/notebooks
+!data/scripts
 # Django
 __pycache__
 *.pyc
