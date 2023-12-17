@@ -21,26 +21,79 @@ SOIL_CHOICES = [
     ('loamy_soil', 'Loamy Soil')
 ]
 
-class LandConditions(models.Model):
-    
-    # Defining the different quanititative information of the land
-    soil_type = models.CharField(max_length=20, choices=SOIL_CHOICES)
-    soil_ph = models.FloatField()
-    temperature = models.CharField(max_length=15)
-    soil_ndvi = models.FloatField(validators=[
-        MinValueValidator(-1), MaxValueValidator(1)
-    ])
+# Defining the different time stages of crops
+STAGE_CHOICES = [
+    ('plant', 'Plant'),
+    ('veg_growth','Vegetative Growth'),
+    ('gran_growth', 'Grand Growth and Tillering'),
+    ('ripen', 'Maturation and Ripening'),
+    ('harvest', 'Harvesting')
 
-
-
+]
 
 
     
 class Crops(models.Model):
 
     name = models.CharField(max_length=20, choices=CROP_CHOICES)
-    landconditions = models.OneToOneField(LandConditions, on_delete=models.CASCADE)
+    
 
+class IdealCropConditions(models.Model):
+    crop = models.OneToOneField(Crops, on_delete=models.CASCADE)
+    soil_type = models.CharField(max_length=20, choices=SOIL_CHOICES)
+    soil_ph_min = models.FloatField() # This is to be hardcoded
+    soil_ph_max = models.FloatField() # This is to be hardcoded
+    
+    nitrogen_min = models.DecimalField(
+        max_digits = 5,
+        decimal_places = 2
+    )
+    nitrogen_max = models.DecimalField(
+        max_digits = 5,
+        decimal_places = 2
+    )
+
+    phosphorus_min = models.DecimalField(
+        max_digits = 5,
+        decimal_places = 2,
+    )
+    phosphorus_max = models.DecimalField(
+        max_digits = 5,
+        decimal_places = 2,
+    )
+
+    potassium_min = models.DecimalField(
+        max_digits = 5,
+        decimal_places = 2
+    )
+    potassium_max = models.DecimalField(
+        max_digits = 5,
+        decimal_places = 2
+    )
+
+
+class CropsTimeline(models.Model):
+    crop = models.ForeignKey(Crops, on_delete=models.CASCADE)
+    stage = models.CharField(max_length=30, choices=STAGE_CHOICES)
+    date_start = models.DateField()
+    date_end = models.DateField()
+
+class CropConditionsTimed(models.Model):
+    croptimestage = models.OneToOneField(CropsTimeline, on_delete=models.CASCADE)
+    ndvi_min = models.FloatField(validators=[ # This is to be calculated using the NDVI data
+        MinValueValidator(-1), MaxValueValidator(1)
+    ])
+    ndvi_max = models.FloatField(validators=[ # This is to be calculated using the NDVI data
+        MinValueValidator(-1), MaxValueValidator(1)
+    ])
+    lst_min = models.FloatField(validators=[
+        MinValueValidator(150), MaxValueValidator(1310)
+    ])
+    lst_max = models.FloatField(validators=[
+        MinValueValidator(150), MaxValueValidator(1310)
+    ])
+    leafcover_min = models.FloatField()
+    leafcover_max = models.FloatField()
 
 class Farm(models.Model):
 
@@ -49,5 +102,30 @@ class Farm(models.Model):
     longitude = models.DecimalField(max_digits=9, decimal_places=6)
     latitude = models.DecimalField(max_digits=9, decimal_places=6)
     crops = models.ManyToManyField(Crops)
-    landconditions = models.OneToOneField(LandConditions)
 
+
+class LandConditions(models.Model):
+    
+    # Defining the different quanititative information of the land
+    farm = models.OneToOneField(Farm, on_delete=models.CASCADE)
+    soil_type = models.CharField(max_length=20, choices=SOIL_CHOICES) # This is to be hardcoded
+    soil_ph = models.FloatField() # This is to be hardcoded
+    nitrogen = models.DecimalField(
+        max_digits = 5,
+        decimal_places = 2
+    )
+    phosphorus = models.DecimalField(
+        max_digits = 5,
+        decimal_places = 2,
+    )
+    potassium = models.DecimalField(
+        max_digits = 5,
+        decimal_places = 2
+    )
+    ndvi = models.FloatField(validators=[ # This is to be calculated using the NDVI data
+        MinValueValidator(-1), MaxValueValidator(1)
+    ])
+    lst = models.FloatField(validators=[
+        MinValueValidator(150), MaxValueValidator(1310)
+    ])
+    leafcover = models.FloatField()

@@ -87,8 +87,12 @@ WSGI_APPLICATION = 'agrodigital_proj.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME':  "./db.sqlite3",
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'agro_db',
+        'USER': 'agro',
+        'PASSWORD': '@grocheck123',
+        'HOST': 'agro-server.mysql.database.azure.com',
+        'PORT': '3306',  # Default MySQL port
     }
 }
 

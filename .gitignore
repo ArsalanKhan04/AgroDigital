@@ -2,7 +2,7 @@ AgroNew_env/
 
 # .gitignore
 
-
+data/
 # Django
 __pycache__
 *.pyc

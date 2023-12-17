@@ -25,7 +25,7 @@ const Login = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-      client.get("user").then(function(res){
+      client.get("users/user").then(function(res){
         setCurrentUser(true)
       })
       .catch(function(error){
@@ -48,7 +48,7 @@ const Login = () => {
     {
       e.preventDefault();
       client.post(
-        "/login",
+        "/users/login",
         {
           email:email,
           password:password
@@ -78,7 +78,7 @@ const Login = () => {
 
       e.preventDefault();
       client.post(
-        "/register",
+        "/users/register",
         {
           email:email,
           username:username,
