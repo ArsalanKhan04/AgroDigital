@@ -44,5 +44,3 @@ def get_evapotrans(lon, lat):
 
 def get_soilmoisture(lon, lat):
     return soilmoisture[get_coords(lon, lat)]
-
-print(get_evapotrans(62, 30))
