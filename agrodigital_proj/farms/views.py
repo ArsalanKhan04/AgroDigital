@@ -46,12 +46,40 @@ class MakeFarm(APIView):
         except Exception as e:
             return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+# Getting Crops
+class GetCrop(APIView):
+    def get(self, request):
+        try:
+            with connection.cursor() as cursor:
+                cursor.execute("SELECT * FROM farms_crops")
+                result = cursor.fetchall()
+                res = [{
+                    "id":each[0],
+                    "crop_name":each[1]
+                } for each in result]
+                return Response(res, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({
+                "error":str(e)
+            }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 # Adding Crops
 class AddCrop(APIView):
     def post(self, request):
-        crop_id = request.data.get('crop_id')
-        farm_id = request.data.get('farm_id')
+        try:
+            crop_id = request.data.get('crop_id', 0)
+            farm_id = request.data.get('farm_id', 0)
+            plant_date = request.data.get('plant_date', "")
+            with connection.cursor() as cursor:
+                cursor.callproc('AddCrop', [farm_id,
+                                            crop_id,
+                                            plant_date])
+            return Response(status=status.HTTP_200_OK)
+
+        except Exception as e:
+            return Response({
+                "error":str(e)
+            }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 # Getting all the farms
