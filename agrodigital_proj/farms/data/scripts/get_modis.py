@@ -7,13 +7,17 @@ get_ndvi(long, lat) takes longitude and latitude values and gives the ndvi value
 
 '''
 # importing numpy to get the data
+import os
+import sys
+sys.path.append('../../')
+sys.path.append('../')
 import numpy as np
-from coordconv import return_coordinates, day_of_year
+from farms.data.scripts.coordconv import return_coordinates, day_of_year
 
 # keeping the file_path while keeping empty space to get data later
-ndvi_dest_path = "../ndvi/refined/ndvi_{}_{}.npy"
-lst_dest_path = "../landsurftemp/refined/lst_{}_{}.npy"
-lc_dest_path = "../leafcover/refined/leafcover_{}_{}.npy"
+ndvi_dest_path = "farms/data/ndvi/refined/ndvi_{}_{}.npy"
+lst_dest_path = "farms/data/landsurftemp/refined/lst_{}_{}.npy"
+lc_dest_path = "farms/data/leafcover/refined/leafcover_{}_{}.npy"
 NDVI_end = 321
 LST_end = 337
 LC_end = 345

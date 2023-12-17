@@ -103,31 +103,42 @@ class Farm(models.Model):
     size_acres = models.FloatField(null = True)
     longitude = models.DecimalField(max_digits=9, decimal_places=6)
     latitude = models.DecimalField(max_digits=9, decimal_places=6)
-    crops = models.ManyToManyField(Crops)
+
+class EachFarmCrop(models.Model):
+    crops = models.ForeignKey(Crops, on_delete=models.CASCADE)
+    farms = models.ForeignKey(Farm, on_delete=models.CASCADE)
+    plant_date = models.DateField(null=True)
+    veg_growth_date = models.DateField(null=True)
+    gran_growth_date = models.DateField(null=True)
+    ripen_date = models.DateField(null=True)
+    harvest_date = models.DateField(null=True)
 
 
 class LandConditions(models.Model):
     
     # Defining the different quanititative information of the land
     farm = models.OneToOneField(Farm, on_delete=models.CASCADE)
-    soil_type = models.CharField(max_length=20, choices=SOIL_CHOICES) # This is to be hardcoded
-    soil_ph = models.FloatField() # This is to be hardcoded
+    date = models.DateField(null=True)
+    soil_type = models.CharField(max_length=20, choices=SOIL_CHOICES, null=True) # This is to be hardcoded
+    soil_ph = models.FloatField(null=True) # This is to be hardcoded
     nitrogen = models.DecimalField(
         max_digits = 5,
-        decimal_places = 2
+        decimal_places = 2, null=True
     )
     phosphorus = models.DecimalField(
         max_digits = 5,
-        decimal_places = 2,
+        decimal_places = 2, null=True
     )
     potassium = models.DecimalField(
         max_digits = 5,
-        decimal_places = 2
+        decimal_places = 2, null=True
     )
     ndvi = models.FloatField(validators=[ # This is to be calculated using the NDVI data
         MinValueValidator(-1), MaxValueValidator(1)
-    ])
+    ], null=True)
     lst = models.FloatField(validators=[
         MinValueValidator(150), MaxValueValidator(1310)
-    ])
-    leafcover = models.FloatField()
+    ], null=True)
+    leafcover = models.FloatField(null=True)
+    soilmoisture = models.FloatField(null=True)
+    evapotrans = models.FloatField(null = True)
