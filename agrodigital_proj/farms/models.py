@@ -98,7 +98,7 @@ class CropConditionsTimed(models.Model):
 class Farm(models.Model):
 
     user = models.ForeignKey(AgroUsers, on_delete=models.CASCADE)
-    address = models.OneToOneField(Address, on_delete=models.CASCADE)
+    address = models.ForeignKey(Address, on_delete=models.CASCADE)
     farm_name = models.CharField(max_length = 100, default = "My Farm")
     size_acres = models.FloatField(null = True)
     longitude = models.DecimalField(max_digits=9, decimal_places=6)
