@@ -1,5 +1,5 @@
 import numpy as np
-file_path = r"farms/data/soilmoisture/evap_moisture.npz"
+file_path = r"data/soilmoisture/evap_moisture.npz"
 
 file = np.load(file_path)
 

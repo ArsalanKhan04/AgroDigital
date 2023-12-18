@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.db import connection
 from farms.landconditions import MakeNasaConditions
-
+from render_images.gen_sat import get_static_map
 
 
 
@@ -138,7 +138,24 @@ class GetFarmCrops(APIView):
 # Sending images data
 class GetFarmSatImage(APIView):
     def get(self,request):
-        pass
+        farm_id = request.GET.get('farm_id')
+        try:
+            with connection.cursor() as cursor:
+                cursor.callproc('GetCoords', [farm_id])
+                results = cursor.fetchone()
+                farm_id = results[0]
+                latitude = results[1]
+                longitude = results[2]
+                print(latitude, longitude)
+            return Response({
+                "farm_id":farm_id,
+                "img_url":get_static_map(longitude, latitude)})
+        except Exception as e:
+            return Response({
+                "error":str(e)
+            }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
 
 class GetCropHistoryImage(APIView):
     def get(self, request):
@@ -147,3 +164,4 @@ class GetCropHistoryImage(APIView):
 class UpdateNutriends(APIView):
     def post(self, request):
         pass
+
