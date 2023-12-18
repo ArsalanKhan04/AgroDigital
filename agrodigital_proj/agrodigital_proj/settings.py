@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'user_api.apps.UserApiConfig',
     'districts.apps.DistrictsConfig',
-    'farms.apps.FarmsConfig'
+    'farms.apps.FarmsConfig',
+    'fertilizers.apps.FertilizersConfig'
 ]
 
 MIDDLEWARE = [

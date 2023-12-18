@@ -3,8 +3,8 @@ sys.path.append('../../')
 sys.path.append('../')
 
 from datetime import datetime
-from farms.data.scripts.get_modis import get_ndvi, get_lc, get_lst
-from farms.data.scripts.soilmoisture import get_evapotrans, get_soilmoisture
+from data.scripts.get_modis import get_ndvi, get_lc, get_lst
+from data.scripts.soilmoisture import get_evapotrans, get_soilmoisture
 from django.db import connection
 
 def MakeNasaConditions(farm_id):

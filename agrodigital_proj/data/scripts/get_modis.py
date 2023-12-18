@@ -12,7 +12,7 @@ import sys
 sys.path.append('../../')
 sys.path.append('../')
 import numpy as np
-from farms.data.scripts.coordconv import return_coordinates, day_of_year
+from data.scripts.coordconv import return_coordinates, day_of_year
 
 # keeping the file_path while keeping empty space to get data later
 ndvi_dest_path = "farms/data/ndvi/refined/ndvi_{}_{}.npy"

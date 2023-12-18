@@ -133,4 +133,17 @@ class GetFarmCrops(APIView):
             return Response({
                 "error":str(e)
             }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-            
+
+
+# Sending images data
+class GetFarmSatImage(APIView):
+    def get(self,request):
+        pass
+
+class GetCropHistoryImage(APIView):
+    def get(self, request):
+        pass
+
+class UpdateNutriends(APIView):
+    def post(self, request):
+        pass
