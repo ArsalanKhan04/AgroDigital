@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css");
+body {
+  
+  /* margin: 0; */
+  font-family: 'poppins';
+  /* background: linear-gradient(48deg, rgba(97,215,182,1) 0%, rgba(255,255,255,1) 46%, rgb(163, 214, 238) 81%); */
+  width: 98vw;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
