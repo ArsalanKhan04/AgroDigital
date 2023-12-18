@@ -46,6 +46,9 @@ def get_lst_xy(x, y, file_index, day):
     return lst_data[x, y] * 0.021
 
 def get_ndvi(long , lat, date):
+    long = float(long)
+    lat = float(lat)
+    date = str(date)
     x, y, file_index = return_coordinates(long, lat, 0.5)
     day = day_of_year(date)
     print(day)
@@ -54,12 +57,18 @@ def get_ndvi(long , lat, date):
     return get_ndvi_xy(x, y, file_index, day)
 
 def get_lc(long, lat, date):
+    long = float(long)
+    lat = float(lat)
+    date = str(date)
     x, y, file_index = return_coordinates(long, lat, 1)
     day = day_of_year(date)
     day = LC_nums[np.searchsorted(LC_nums, int(day))-1]
     return get_lc_xy(x, y, file_index, day)
 
 def get_lst(long, lat, date):
+    long = float(long)
+    lat = float(lat)
+    date = str(date)
     x, y, file_index = return_coordinates(long, lat, 1)
     day = day_of_year(date)
     day = LST_nums[np.searchsorted(LST_nums, int(day))-1]

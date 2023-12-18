@@ -7,5 +7,6 @@ urlpatterns = [
     path('addcrop', views.AddCrop.as_view(), name='addcrop'),
     path('getfarms', views.GetFarms.as_view(), name='getfarms'),
     path('getfarmcrops', views.GetFarmCrops.as_view(), name='getfarmcrops'),
-    path('getfarmsatimage', views.GetFarmSatImage.as_view(), name='getfarmsatimage')
+    path('getfarmsatimage', views.GetFarmSatImage.as_view(), name='getfarmsatimage'),
+    path('getcrophistoryimage', views.GetCropHistoryImage.as_view(), name='getcrophistoryimage')
 ]

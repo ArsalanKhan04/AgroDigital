@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from django.db import connection
-from farms.landconditions import MakeNasaConditions
+from farms.landconditions import MakeNasaConditions, MakeBarGraph
 from render_images.gen_sat import get_static_map
 
 
@@ -159,7 +159,22 @@ class GetFarmSatImage(APIView):
 
 class GetCropHistoryImage(APIView):
     def get(self, request):
-        pass
+        farm_id = request.GET.get('farm_id')
+        crop_id = request.GET.get('crop_id')
+        try:
+            
+            image_data = MakeBarGraph(farm_id, crop_id)
+
+            res = {
+                'image_data':image_data
+            }
+                
+
+            return Response(res)
+        except Exception as e:
+            return Response({
+                "error":str(e)
+            }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 class UpdateNutriends(APIView):
     def post(self, request):
