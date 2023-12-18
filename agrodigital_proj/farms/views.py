@@ -85,4 +85,52 @@ class AddCrop(APIView):
 # Getting all the farms
 class GetFarms(APIView):
     # Make sure to update view
-    pass
+    def get(self, request):
+        try:
+            user_id = request.user.id
+            with connection.cursor() as cursor:
+                cursor.callproc('getfarms', [user_id])
+                results = cursor.fetchall()
+                res = [{
+                    'farm_id':each[1],
+                    'longitude':each[2],
+                    'latitude':each[3],
+                    'farm_name':each[4],
+                    'size_acres':each[5],
+                    'soil_type':each[6],
+                    'soil_ph':each[7],
+                    'nitrogen':each[8],
+                    'phosphorus':each[9],
+                    'potassium':each[10],
+                    'ndvi':each[11],
+                    'lst':each[12],
+                    'leafcover':each[13],
+                    'evapotrans':each[14],
+                    'date':each[15]
+                } for each in results]
+                return Response(res)
+        except Exception as e:
+            return Response({
+                "error":str(e)
+            }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class GetFarmCrops(APIView):
+    # Getting each farm crops
+    def get(self, request):
+        try:
+            farm_id = request.GET.get('farms_id')
+            with connection.cursor() as cursor:
+                cursor.callproc('getcrops', [farm_id])
+                results = cursor.fetchall()
+                res = [{
+                        'crop_id': each[0],
+                        'crop_name': each[1],
+                        'plant_date':each[2],
+                    } for each in results]
+            return Response(res)
+
+        except Exception as e:
+            return Response({
+                "error":str(e)
+            }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            
