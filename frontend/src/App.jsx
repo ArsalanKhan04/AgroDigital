@@ -4,7 +4,7 @@ import Home from "./Pages/Home";
 import Farm from "./Pages/Farm";
 import Search from "./Pages/Search";
 import CarouselComponent from "./Pages/Home";
-import Forum from "./Pages/forum";
+import Forum from "./Pages/Forum";
 import {
   BrowserRouter as Router,
   Routes,
