@@ -1,19 +1,13 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React from 'react';
+import {Link} from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import './Login.css'
-import Logo from './logo_png.png'
-import axios, { Axios } from 'axios';
+import './Login.css';
+import Logo from './logo_png.png';
+import client from '../../axiosconfig';
 import { useNavigate } from "react-router-dom";
 // import { response } from 'express';
 //import { response } from 'express';
 
-axios.defaults.xsrfCookieName = 'csrftoken';
-axios.defaults.xsrfHeaderName = 'X-CSRFToken';
-
-const client = axios.create({
-  baseURL: "http://127.0.0.1:8000"
-});
 
 const Login = () => {
     const [currentUser, setCurrentUser] = useState();

@@ -46,6 +46,7 @@ def MakeNasaConditions(farm_id):
 
 def MakeBarGraph(farm_id, crop_id):
     with connection.cursor() as cursor:
+        print("came here ig")
         cursor.callproc('GetNasaChart', [farm_id, crop_id])
         results = cursor.fetchall()
         labels = [each[2] + "\n" + str(each[3]) for each in results]

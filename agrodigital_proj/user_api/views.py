@@ -4,6 +4,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializers import UserLoginSerializer, UserRegisterSerializer, UserSerializer
 from rest_framework import permissions, status
+from django.middleware import csrf
 from .validations import custom_validation, validate_email, validate_password
 
 
@@ -51,3 +52,8 @@ class UserView(APIView):
     def get(self, request):
         serializer = UserSerializer(request.user) 
         return Response({'user':serializer.data}, status=status.HTTP_200_OK)
+
+class CSRFTokenView(APIView):
+    def get(self, request, format=None):
+        csrf_token = csrf.get_token(request)
+        return Response({'csrf_token': csrf_token})

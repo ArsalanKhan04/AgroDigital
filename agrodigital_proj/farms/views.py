@@ -22,6 +22,8 @@ class MakeFarm(APIView):
         address = request.data.get("address", "")
         city = request.data.get("city", "")
         landtype = request.data.get("landtype", "")
+        print(request.data)
+        print(district_id)
         try:
             with connection.cursor() as cursor:
                 # Executing the making complete Farm stored procedure
@@ -81,7 +83,6 @@ class AddCrop(APIView):
                 "error":str(e)
             }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-
 # Getting all the farms
 class GetFarms(APIView):
     # Make sure to update view
@@ -106,7 +107,8 @@ class GetFarms(APIView):
                     'lst':each[12],
                     'leafcover':each[13],
                     'evapotrans':each[14],
-                    'date':each[15]
+                    'date':each[15],
+                    'image_url':get_static_map(each[2],each[3])
                 } for each in results]
                 return Response(res)
         except Exception as e:
@@ -119,13 +121,24 @@ class GetFarmCrops(APIView):
     def get(self, request):
         try:
             farm_id = request.GET.get('farms_id')
+            print(farm_id)
             with connection.cursor() as cursor:
-                cursor.callproc('getcrops', [farm_id])
+                cursor.callproc('getcrops_details', [farm_id])
                 results = cursor.fetchall()
                 res = [{
                         'crop_id': each[0],
                         'crop_name': each[1],
                         'plant_date':each[2],
+                        'farms_id':each[4],
+                        'ideal_soil_type':each[3],
+                        'soil_ph_min':each[5],
+                        'soil_ph_max':each[6],
+                        'nitrogen_min':each[7],
+                        'nitrogen_max':each[8],
+                        'phosphorus_min':each[9],
+                        'phosphorus_max':each[10],
+                        'potassium_min':each[11],
+                        'potassium_max':each[12]
                     } for each in results]
             return Response(res)
 
@@ -133,6 +146,39 @@ class GetFarmCrops(APIView):
             return Response({
                 "error":str(e)
             }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class GetEachFarm(APIView):
+    def get(self, request):
+        farm_id = request.GET.get("farm_id")
+
+        try:
+            with connection.cursor() as cursor:
+                cursor.callproc("getfarm_ind", [farm_id])
+                each = cursor.fetchone()
+                res = {
+                    'farm_id':each[1],
+                    'longitude':each[2],
+                    'latitude':each[3],
+                    'farm_name':each[4],
+                    'size_acres':each[5],
+                    'soil_type':each[6],
+                    'soil_ph':each[7],
+                    'nitrogen':each[8],
+                    'phosphorus':each[9],
+                    'potassium':each[10],
+                    'ndvi':each[11],
+                    'lst':each[12],
+                    'leafcover':each[13],
+                    'evapotrans':each[14],
+                    'soilmoisture':each[15],
+                    'date':each[16],
+                    'image_url':get_static_map(each[2],each[3])
+                }
+            return Response(res)
+        except Exception as e:
+                return Response({
+                    "error":str(e)
+                }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 # Sending images data
@@ -149,13 +195,11 @@ class GetFarmSatImage(APIView):
                 print(latitude, longitude)
             return Response({
                 "farm_id":farm_id,
-                "img_url":get_static_map(longitude, latitude)})
+                "img_content":get_static_map(longitude, latitude)})
         except Exception as e:
             return Response({
                 "error":str(e)
             }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
-
 
 class GetCropHistoryImage(APIView):
     def get(self, request):
