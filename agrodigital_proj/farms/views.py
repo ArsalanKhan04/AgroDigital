@@ -223,4 +223,3 @@ class GetCropHistoryImage(APIView):
 class UpdateNutriends(APIView):
     def post(self, request):
         pass
-
