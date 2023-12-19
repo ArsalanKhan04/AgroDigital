@@ -9,5 +9,6 @@ urlpatterns = [
     path('geteachfarm', views.GetEachFarm.as_view(), name='geteachfarm'),
     path('getfarmcrops', views.GetFarmCrops.as_view(), name='getfarmcrops'),
     path('getfarmsatimage', views.GetFarmSatImage.as_view(), name='getfarmsatimage'),
-    path('getcrophistoryimage', views.GetCropHistoryImage.as_view(), name='getcrophistoryimage')
+    path('getcrophistoryimage', views.GetCropHistoryImage.as_view(), name='getcrophistoryimage'),
+    path('getpredictedyield', views.GetPredictedYield.as_view(), name="getpredictedyield")
 ]

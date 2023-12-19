@@ -142,3 +142,8 @@ class LandConditions(models.Model):
     leafcover = models.FloatField(null=True)
     soilmoisture = models.FloatField(null=True)
     evapotrans = models.FloatField(null = True)
+
+class CropStats(models.Model):
+    crop = models.ForeignKey(Crops, on_delete=models.CASCADE)
+    avg_yield = models.FloatField()
+    avg_cost = models.FloatField()
