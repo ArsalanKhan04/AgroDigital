@@ -223,3 +223,29 @@ class GetCropHistoryImage(APIView):
 class UpdateNutriends(APIView):
     def post(self, request):
         pass
+
+
+class GetPredictedYield(APIView):
+    def get(self, request):
+        try:
+            user_id = request.user.id
+            with connection.cursor() as cursor:
+                cursor.callproc("GetYield", [user_id])
+                results=cursor.fetchall()
+            res = [
+                {
+                    "user_id":each[0],
+                    "farm_id":each[1],
+                    "crop_id":each[3],
+                    "farm_name":each[2],
+                    "crop_name":each[4],
+                    "size_acres":each[5],
+                    "pred_yield":each[6],
+                    "pred_cost":each[7]
+                } for each in results
+            ]
+            return Response(res)
+        except Exception as e:
+            return Response({
+                "error":str(e)
+            }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

@@ -49,6 +49,19 @@ const Market = () => {
         updateCurrMarketName(markName)
     }
 
+    const [preds, updatePreds] = useState([]);
+
+    useEffect(()=>{
+        axiosInstance.get("farms/getpredictedyield")
+        .then(function(res){
+            updatePreds(res.data)
+        })
+        .catch(function(error){
+            console.log(error.message)
+        })
+    }, [])
+
+
   return (
     <>
       <Navbar />
@@ -89,6 +102,7 @@ const Market = () => {
         </div>
         <div>
         <div className="container mx-auto p-8">
+        {currMarketName} Prices per /100kgs
       <table className="min-w-full divide-y divide-gray-200">
         <thead>
           <tr>
@@ -128,8 +142,18 @@ const Market = () => {
     </div>
 
         </div>
-          <div className="w-[70%] h-20 bg-emerald-100 rounded-3xl" />
-          <div className="w-[70%] h-20 bg-emerald-100 rounded-3xl" />
+        <Carousel>
+            {preds.map((pred, index) => (
+                <div>
+                    <p>Farm Name: {pred.farm_name}</p>
+                    <p>Crop: {pred.crop_name}</p>
+                    <p>Estimated Yield: {pred.pred_yield}kgs</p>
+                    <p>Estimated Production Cost: Rs{pred.pred_cost}</p>
+                </div>
+            ))}
+        </Carousel>
+            
+
         </div>
       </div>
     </>
