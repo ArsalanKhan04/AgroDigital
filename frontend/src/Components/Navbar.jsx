@@ -13,7 +13,7 @@ const Navbar = () => {
         </div>
         <div className="links">
             <h5 className="links">Information</h5>
-            <h5 className="links">Market</h5>
+            <h5 className="links" onClick={() => navigate("/market",{replace:true})}>Market</h5>
             <h5 className="links" onClick={() => navigate("/forum",{replace:true})}>Forums Page</h5>
         </div>
     </nav>

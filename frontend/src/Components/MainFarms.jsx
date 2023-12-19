@@ -4,6 +4,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import { useNavigate } from 'react-router-dom';
 
+
 const MainFarms = () => {
     const navigate = useNavigate();
     const [data, updateData ]= useState([])
