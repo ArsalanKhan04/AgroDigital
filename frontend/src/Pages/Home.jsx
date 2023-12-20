@@ -89,7 +89,6 @@ const Home = () => {
       headers: {
         "X-CSRFToken":csrftoken_x
       } })
-      .then((response) => response.json())
       .then((data) => {
         console.log("Data sent successfully:", data);
         // Optionally, you can navigate to the map or handle success as needed

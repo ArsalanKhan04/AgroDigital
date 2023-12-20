@@ -6,7 +6,7 @@ from .serializers import UserLoginSerializer, UserRegisterSerializer, UserSerial
 from rest_framework import permissions, status
 from django.middleware import csrf
 from .validations import custom_validation, validate_email, validate_password
-
+from django.views.decorators.csrf import csrf_exempt
 
 class UserRegister(APIView):
     permission_classes = (permissions.AllowAny,)
@@ -41,6 +41,10 @@ class UserLogin(APIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
 
 class UserLogout(APIView):
+    
+    permission_classes = (permissions.IsAuthenticated,)
+    authentication_classes = (SessionAuthentication,)
+    
     def post(self, request):
         logout(request)
         return Response(status=status.HTTP_200_OK)  

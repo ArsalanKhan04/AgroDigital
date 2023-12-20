@@ -13,7 +13,7 @@ const WeatherApp = () => {
     });
 
 
-    })
+    }, [])
 
     if(!currentWeather){
         return null;

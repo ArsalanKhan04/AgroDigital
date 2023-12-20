@@ -29,6 +29,15 @@ const axiosInstance = axios.create({
 const Farm = () => {
   const { farmId } = useParams();
 
+
+  const [cropData, setCropData] = useState(
+    {
+      farm_id:0,
+      crop_id:0,
+      plant_date:"",
+    }
+  );
+
   // Getting the CSRF token for post requests
   const [csrftoken_x, setCSRF] = useState("");
   useEffect(() => {
@@ -81,16 +90,9 @@ const Farm = () => {
     .catch(function(error){
       console.log(error.message);
     })
-  }, [farmId])
+  }, [cropData])
 
 
-  const [cropData, setCropData] = useState(
-    {
-      farm_id:0,
-      crop_id:0,
-      plant_date:"",
-    }
-  );
   const handleSubmit = () => {
     setCropData({farm_id:farmId})
     axiosInstance.post("farms/addcrop", cropData,
@@ -98,11 +100,8 @@ const Farm = () => {
       headers: {
         "X-CSRFToken":csrftoken_x
       } })
-      .then((response) => response.json())
       .then((data) => {
         console.log("Data sent successfully:", data);
-        // Optionally, you can navigate to the map or handle success as needed
-        navigate("/map", { replace: true });
       })
       .catch((error) => {
         console.error("Error sending data:", error);
