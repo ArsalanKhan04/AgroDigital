@@ -26,11 +26,8 @@ a:hover {
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+
+  background-color: rgba(157, 248, 186, 0.84);
 }
 
 h1 {
@@ -71,6 +68,5 @@ button:focus-visible {
 }
 
 #root {
-  background-color: rgba(146, 214, 167, 0.84);
  height: 100vh;
 }

@@ -2,13 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import { getCurrentWeather, getWeatherForecast, getHistoricalWeather } from './WeatherApi';
 
-const WeatherApp = () => {
+const WeatherApp = (props) => {
   const [currentWeather, setCurrentWeather] = useState(null);
   const [forecast, setForecast] = useState(null);
 
   useEffect(() => {
     // Example: Fetch current weather for a city
-    getCurrentWeather('Karachi').then((data) => {
+    getCurrentWeather(props.lat, props.long).then((data) => {
       setCurrentWeather(data);
     });
 
@@ -20,7 +20,6 @@ const WeatherApp = () => {
     }
 
   const {
-    city_name,
     weather,
     main,
     wind,
@@ -30,6 +29,9 @@ const WeatherApp = () => {
   return (
       <div className="bg-gray-200 rounded-lg p-4 max-w-sm mx-8">
         <h2 className="text-2xl font-semibold mb-4">Current Weather</h2>
+        <div>
+          <img src = {`https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`}/>
+        </div>
         <div>
           <strong>Weather:</strong> {weather[0].description}
         </div>

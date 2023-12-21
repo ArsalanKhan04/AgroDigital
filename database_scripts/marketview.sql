@@ -9,6 +9,9 @@ BEGIN
 	SELECT * FROM marketview;
 END//
 
+SELECT fc.name, dd.min_price, dd.max_price, fc.id, district_id FROM
+ districts_districtrate AS dd 
+ JOIN farms_crops as fc ON fc.id=dd.crop_id;
 
 
 DELIMITER //

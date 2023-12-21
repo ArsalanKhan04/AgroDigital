@@ -7,8 +7,10 @@ CREATE OR REPLACE ALGORITHM=MERGE VIEW farm_preds AS
 SELECT ff.user_id as user_id,
 	ff.id as farm_id, 
     ff.farm_name as farm_name, 
+    
     fe.crops_id as crop_id, 
-    fcr.name as crop_name, size_acres,
+    fcr.name as crop_name,
+    size_acres,
 	fc.avg_yield*size_acres as pred_yield,
     fc.avg_cost*size_acres as pred_cost
     

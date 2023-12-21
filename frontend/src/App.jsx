@@ -19,6 +19,7 @@ import Map from "./Pages/Map";
 import Test from "./Pages/testingdialogue";
 function App() {
   return (
+    <body className="flex w-full">
     <BrowserRouter>
       <Routes>
         <Route element={<Login/>} path ="/"></Route>
@@ -31,6 +32,7 @@ function App() {
         <Route element={<Map/>} path="/map"></Route>
       </Routes>
     </BrowserRouter>
+    </body>
   );
 }
 

@@ -43,7 +43,7 @@ def get_lst_xy(x, y, file_index, day):
         raise ValueError("Invalid range of coordinates provided")
     day = f"{day:03d}"
     lst_data = np.load(lst_dest_path.format(day, file_index))
-    return lst_data[x, y] * 0.021
+    return (lst_data[x, y] * 0.021) - 273
 
 def get_ndvi(long , lat, date):
     long = float(long)

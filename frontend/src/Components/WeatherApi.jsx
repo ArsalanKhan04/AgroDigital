@@ -8,11 +8,12 @@ const weatherApi = axios.create({
   baseURL: BASE_URL,
 });
 
-export const getCurrentWeather = async (city) => {
+export const getCurrentWeather = async (lat, lon) => {
   try {
     const response = await weatherApi.get('/weather', {
       params: {
-        q: city,
+        lat: lat,
+        lon: lon,
         appid: API_KEY,
       },
     });

@@ -107,7 +107,8 @@ class GetFarms(APIView):
                     'lst':each[12],
                     'leafcover':each[13],
                     'evapotrans':each[14],
-                    'date':each[15],
+                    'soilmoisture':each[15],
+                    'date':each[16],
                     'image_url':get_static_map(each[2],each[3])
                 } for each in results]
                 return Response(res)
