@@ -8,6 +8,7 @@ import {
     DialogTrigger,
   } from "../Components/ui/dialogue";
 import axios from "axios";
+import Map from "../Pages/Map";
 
 
 import { useNavigate } from "react-router-dom";
@@ -75,6 +76,8 @@ const axiosInstance = axios.create({
 
   const handleSubmit = () => {
     // Add your code to send data to the backend using a POST API
+    const store = document.getElementById("message");
+    store.innerHTML("Saving Farm");
     const longitude = localStorage.getItem("lng");
     const latitude = localStorage.getItem("lat");
     const longlat = {
@@ -92,8 +95,12 @@ const axiosInstance = axios.create({
         // Optionally, you can navigate to the map or handle success as needed
         navigate("/map", { replace: true });
       })
+      .finally(()=>{
+        message.innerHTML="New Farm added";
+      })
       .catch((error) => {
         console.error("Error sending data:", error);
+        message.innerHTML=error.message;
         // Handle error as needed
       })
   };
@@ -185,6 +192,7 @@ const axiosInstance = axios.create({
                       <option value="loamy_soil">Loamy Soil</option>
                       {/* Add more options as needed */}
                     </select>
+                    <div id="message"></div>
                   </div>
 
                   <Dialog>
